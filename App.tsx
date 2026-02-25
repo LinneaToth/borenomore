@@ -5,6 +5,8 @@ import BoredButton from "./src/components/BoredButton";
 import { retrieveActivity } from "./src/services/retrieveActivity";
 import ActivityDisplay from "./src/components/ActivityDisplay";
 
+const bgImage = require("./assets/bg.png");
+
 export default function App() {
   const [currentActivity, setCurrentActivity] = useState<null | string>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,14 +19,13 @@ export default function App() {
     setIsLoading(false);
   };
 
-  const image = require("./assets/bg.png");
   const pressHandler = () => {
     grabActivity();
   };
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
         <BoredButton onPress={pressHandler} activity={currentActivity} />
         <ActivityDisplay
           activity={currentActivity}
