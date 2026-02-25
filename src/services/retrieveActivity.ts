@@ -7,7 +7,7 @@ const retrieveActivity = async () => {
     );
 
     if (!response.ok) {
-      throw new Error(`HTTP Error: ${response.status}`);
+      throw new Error(`Something went wrong: ${response.status}`);
     }
     const data: BoredResponse = await response.json();
     return data.activity;
