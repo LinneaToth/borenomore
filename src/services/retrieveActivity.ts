@@ -10,6 +10,10 @@ const retrieveActivity = async () => {
       throw new Error(`Something went wrong: ${response.status}`);
     }
     const data: BoredResponse = await response.json();
+
+    if (!data.activity)
+      return "Nothing in life is free, not even advice. Just go do something. Geez!";
+
     return data.activity;
   } catch (e) {
     if (e instanceof Error) {
