@@ -26,7 +26,10 @@ export default function App() {
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <BoredButton onPress={pressHandler} activity={currentActivity} />
-        <ActivityDisplay activity={currentActivity} />
+        <ActivityDisplay
+          activity={currentActivity}
+          setActivity={setCurrentActivity}
+        />
         <StatusBar style="auto" />
       </ImageBackground>
     </View>
