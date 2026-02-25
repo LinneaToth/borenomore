@@ -1,9 +1,15 @@
+import { BoredResponse } from "../types/typesExt";
+
 const retrieveActivity = async () => {
   try {
     const response = await fetch(
       "https://bored-api.appbrewery.com/random?type=recreational&participants=1",
     );
-    let data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(`HTTP Error: ${response.status}`);
+    }
+    const data: BoredResponse = await response.json();
     return data.activity;
   } catch (e) {
     if (e instanceof Error) {
