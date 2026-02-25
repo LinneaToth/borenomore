@@ -12,7 +12,7 @@ export default function BoredButton({ onPress, activity }: Props) {
       onPress={onPress}>
       <Text style={styles.text}>{activity && "STILL"} Bored?</Text>
       <Text style={[styles.text, styles.italicText]}>
-        Click me {activity && "again"}!
+        Click me{activity && " again"}!
       </Text>
     </Pressable>
   );
